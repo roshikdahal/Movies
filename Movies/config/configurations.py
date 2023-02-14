@@ -41,16 +41,17 @@ class Configurations:
         pass 
 
     def get_training_pepeline_config(self) ->TrainigPipelineConfig:
-        """in this function we get the dict of training_pipeline_config from config.yaml
-        by pass to the constants
+        """in this function we pass the inputs to Entity
         """
         try:
             training_pipeline_config = self.yaml_reader[TRAINING_PIPELINE_CONFIG_KEY]
-            #artifact directory
+            
+            #artifact directory = /home/$USER/Documents/Movies/Movies/artifact'
             artifact_dir = os.path.join(CURRENT_WORKING_DIR,
                                         training_pipeline_config[TRAINING_PIPELINE_NAME_KEY],
                                         training_pipeline_config[TRAINING_PIPELINE_ARTIFACT_DIR_KEY]
                                         )
+            training_pipeline_config = TrainigPipelineConfig(artifact_file_dir=artifact_dir)                            
 
         except Exception as e:
             return e

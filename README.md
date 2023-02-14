@@ -40,3 +40,15 @@ It creates the .egg folder and have the source information and package informati
 
 <h3> Create  the folders inside Movies Package</h3>
 logger: for writing the logs of what is going on </br>
+
+<h3>Created the Entity of the project</h3>
+"/home/$USER/Documents/Movies/entity/config_entity.py" </br>
+entity need the properities ,so these properities are defined on </br>
+"/home/$USER/Documents/Movies/config/config.yaml"  </br> 
+
+<h4> In order to read this yaml file we  need yaml file reader which is defined on </h4></br>
+ "/home/$USER/Documents/Movies/utils/utils.py"
+
+<h4>we have entity, properities ,and reader Now, we can read yaml file and assign it the properities ,which is done on </br>
+"/home/$USER/Documents/Movies/Movies/config/configurations.py" 
+
