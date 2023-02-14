@@ -47,8 +47,8 @@ entity need the properities ,so these properities are defined on </br>
 "/home/$USER/Documents/Movies/config/config.yaml"  </br> 
 
 <h4> In order to read this yaml file we  need yaml file reader which is defined on </h4></br>
- "/home/$USER/Documents/Movies/utils/utils.py"
+ "/home/$USER/Documents/Movies/utils/yaml_reader.py"
 
-<h4>we have entity, properities ,and reader Now, we can read yaml file and assign it the properities ,which is done on </br>
+<h4>we have entity, properities ,and reader Now, we can read yaml file and assign it the properities ,which is done on </h4></br>
 "/home/$USER/Documents/Movies/Movies/config/configurations.py" 
 
