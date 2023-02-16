@@ -3,14 +3,15 @@ trainig_pipline_config:
   artifact_dir: artifact
 
 data_ingestion_config:
-  dataset_download_url: ""
+  dataset_download_url: "https://hello.com/data/new/train.csv"
   raw_data_dir: raw_data
-  tgz_download_url: raw_data
+  tgz_download_dir: tgz_data
   ingested_dir: ingested_data  #contains both ingested train and test dir
   ingested_train_dir: train
   ingested_test_dir: test
 
 data_validation_config:
+   schema_file_dir : schema
    schema_file_name: schema.yaml
 
 
@@ -28,7 +29,7 @@ model_training_config:
 
 model_evaluation_config:
    model_file_dir : model
-   model_file_name : model.pkl  
+   model_name : model.pkl  
 
 model_pusher_config:
    model_export_dir: saved_models

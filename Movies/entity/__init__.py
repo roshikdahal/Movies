@@ -1,0 +1,2 @@
+from Movies.entity.config_entity import DataIngestionConfig
+from Movies.entity.artifact_entity import DataIngestionArtifact

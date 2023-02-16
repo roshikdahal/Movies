@@ -1,10 +1,10 @@
-from collections import namedtuple
 """
-this information are provided with yaml file.
+@author: kumar.dahal
+this tuples  need the following inputs
 in yaml we provide all the information and read  yaml file 
 and create object for it
 """
-
+from collections import namedtuple
 DataIngestionConfig = namedtuple("DataIngestionConfig",["dataset_download_url",
                                                         "tgz_download_dir",
                                                         "raw_data_dir",
