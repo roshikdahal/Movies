@@ -1,7 +1,7 @@
 """
 Created on Monday feb 13 2023
 @author: kumar.dahal
-This class is created to to read the folder structure of our files from  DataIngestionConfig 
+This class is created to  read the folder structure of our files from  DataIngestionConfig 
  and  create necessary folder require for DataIngestion
 """
 
@@ -58,6 +58,7 @@ class DataIngestion:
             logging.info("Extracting tgz file:{}".format(total_file_path)) 
             with tarfile.open(total_file_path) as movies_file_object:
                 movies_file_object.extractall(path=raw_folder)
+            logging.info("Extracting tgz file:{} completed".format(raw_folder))     
         except Exception as e:
             return e
 

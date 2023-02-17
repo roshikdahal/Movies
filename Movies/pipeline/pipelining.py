@@ -1,12 +1,14 @@
 """
 @author: kumar dahal
 created date:14 feb 2023
-this class is created to make pipeline of each entity we are performing and steps are performed one after another 
+this class is created to make pipeline of each entity  and steps are performed one after another 
 by identifying the changes made, ,if changes are there then only that entity will run otherwise control will move to next entity.
 """
 from Movies.config.configurations import Configurations
 from Movies.entity import DataIngestionArtifact
 from Movies.component.data_ingestion import DataIngestion
+
+
 class pipelining:
     def __init__(self,config: Configurations= Configurations()) -> None:
         try:

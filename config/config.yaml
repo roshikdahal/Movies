@@ -1,6 +1,6 @@
 trainig_pipline_config:
   pipeline_name: Movies
-  artifact_dir: artifact
+  artifact_dir: artifact  #output directory
 
 data_ingestion_config:
   dataset_download_url: "https://hello.com/data/new/train.csv"
@@ -23,13 +23,13 @@ data_transformation_config:
    preprocessed_object_file_name: preprocessed.pkl
 
 model_training_config:
-   trained_model_dir: trained_model
+   trained_model_dir: trained_model #directory to store model file name
    model_file_name: model.pkl
-   base_accuracy: 0.6  #for now
+   base_accuracy: 0.6  #initial base accuracy.
 
 model_evaluation_config:
    model_file_dir : model
    model_name : model.pkl  
 
 model_pusher_config:
-   model_export_dir: saved_models
+   model_export_dir: saved_models #directory to save models
