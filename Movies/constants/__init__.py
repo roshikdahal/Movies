@@ -34,6 +34,8 @@ INGESTED_TEST_DIR_KEY = "ingested_test_dir"
 DATA_VALIDATION_CONFIG_KEY = "data_validation_config"
 SCHEMA_FILE_DIR_KEY = "schema_file_dir"
 SCHEMA_FILE_NAME_KEY = "schema_file_name"
+REPORT_FILE_NAME = "data_report_file_name"
+REPORT_PAGE_FILE = 'report_page_name'
 
 
 #data transformation config constant defining

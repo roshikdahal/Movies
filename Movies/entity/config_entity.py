@@ -12,7 +12,10 @@ DataIngestionConfig = namedtuple("DataIngestionConfig",["dataset_download_url",
                                                         "ingested_test_dir"])
 
 
-DataValidationConfig = namedtuple("DataValidationConfig",["scehma_file_path"])
+DataValidationConfig = namedtuple("DataValidationConfig",["scehma_file_path",
+                                                        "data_report_file_name",   #data validation json report
+                                                        "report_page_name"         #data report html page
+                                                        ])
 
 
 #preprocessed_file_path contains file path of DataValidationConfig pickel file
