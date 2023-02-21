@@ -60,7 +60,7 @@ class Configurations:
     def get_data_validation_config(self) -> DataValidationConfig:
         try:
 
-            data_artifact = self.training_pepeline_config.artifact_file_dir  #top level artifact folder
+            data_artifact = self.training_pepeline_config.artifact_file_dir  #top level artifact folder {Movies}
 
             data_validation_config = self.config_info[DATA_VALIDATION_CONFIG_KEY]
             
@@ -68,7 +68,8 @@ class Configurations:
                 data_artifact,
                 data_validation_config[SCHEMA_FILE_DIR_KEY],
                 self.time_stamp)
-            schema_file_path = os.path.join(data_schema_dir,data_validation_config[SCHEMA_FILE_NAME_KEY])   
+            schema_file_path = os.path.join(data_schema_dir,data_validation_config[SCHEMA_FILE_NAME_KEY]) 
+            #in this path we are going to store the validation output  
             data_report_file = os.path.join(data_schema_dir,data_validation_config[REPORT_FILE_NAME]) 
             data_report_page = os.path.join(data_schema_dir,data_validation_config[REPORT_PAGE_FILE]) 
             
