@@ -21,10 +21,12 @@ class Configurations:
         self.training_pepeline_config = self.get_training_pepeline_config()
         
         self.time_stamp = current_time_stamp
+        
 
     def get_data_ingestion_config(self) -> DataIngestionConfig:
         """
         this functioins will return the folder structure of url of data downlaod dir,train adnd test dir which is our pipeline artifact.
+        artifact/raw_data/train/train.csv
         """
         try:
             
