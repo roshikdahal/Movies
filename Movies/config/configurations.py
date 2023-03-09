@@ -15,6 +15,7 @@ class Configurations:
     when the file was read and also the function to read_yaml is initialized.
     """
     def __init__(self,config_file_path:str = CONFIG_FILE_DIR,current_time_stamp:str = get_current_time_stamp()) -> None:
+        
         #initialize the read_yaml function to read yaml file
         self.config_info = read_yaml_file(filepath = config_file_path)
 
@@ -88,6 +89,7 @@ class Configurations:
             data_artifact = self.training_pepeline_config.artifact_file_dir
             data_transformation_config = self.config_info[DATA_TRANSFORMATION_CONFIG_KEY]
             transformed_dir = os.path.join(data_artifact,data_transformation_config[TRANSFORMED_DIR_KEY],self.time_stamp)
+            
 
             transformed_train_dir = os.path.join(transformed_dir,data_transformation_config[TRANSFORMED_TRAIN_DIR_KEY])
 

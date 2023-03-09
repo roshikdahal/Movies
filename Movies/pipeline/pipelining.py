@@ -5,11 +5,11 @@ this class is created to make pipeline of each entity  and steps are performed o
 by identifying the changes made, ,if changes are there then only that entity will run otherwise control will move to next entity.
 """
 from Movies.config.configurations import Configurations
-from Movies.entity import DataIngestionArtifact
+from Movies.entity.artifact_entity import DataIngestionArtifact,DataValidationArtifact
 from Movies.component.data_ingestion import DataIngestion
+from Movies.component.data_validation import DataValidation
 
-
-class pipelining:
+class Pipelining:
     def __init__(self,config: Configurations= Configurations()) -> None:
         try:
             #store the config informations
@@ -30,14 +30,29 @@ class pipelining:
         except Exception as e:
             return e   
 
-    def start_data_validation(self):
-        pass 
+    def start_data_validation(self,data_ingestion_artifact:DataIngestionArtifact) ->DataValidationArtifact:
+        try:
+
+            data_validation = DataValidation(data_validation_config=self.config.get_data_validation_config(),
+                                             data_ingestion_artifact=data_ingestion_artifact
+                                             )
+            return data_validation.initiate_data_validation()
+            
+
+        except Exception as e:
+            return e    
 
     def start_data_transformation(self):
-        pass
+        try:
+            pass
+        except Exception as e:
+            return e   
     
     def start_model_training(slef):
-        pass
+        try:
+            pass
+        except Exception as e:
+            return e   
 
     def start_model_evaluation(self):
         pass
@@ -51,5 +66,6 @@ class pipelining:
         try:
             #run data ingestion artifact
             data_ingestion_artifact =self.start_data_ingestion()
+            data_validation_artifact = self.start_data_validation(data_ingestion_artifact=data_ingestion_artifact)
         except Exception as e:
             return e             

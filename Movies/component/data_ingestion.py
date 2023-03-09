@@ -14,7 +14,7 @@ from six.moves import urllib
 import tarfile
 import pandas as pd
 import numpy as np
-
+from sklearn.model_selection import StratifiedShuffleSplit
 
 class DataIngestion:
     
@@ -77,6 +77,56 @@ class DataIngestion:
             #read the csv file
             movies_df =  pd.read_csv(movies_file_path)
             #remaining to perform data split using stratified sampling
+
+
+            #since world_revenue is our dependent variable we seprate the array element into bins and perform statistical analysis
+            movies_df["revenue_cat"] = pd.cut(
+                movies_df["world_revenue"],
+                bins=[0.0, 1.5, 3.0, 4.5, 6.0, np.inf],  #category for our world revenue 0.0 and 1.5 one group 1.5 to 3.0 another
+                labels=[1,2,3,4,5]  #names
+            )
+            
+
+            logging.info(f"Splitting data into train and test")
+            strat_train_set = None
+            strat_test_set = None
+            #we are using StratifiedShuffleSplit to create  split with the size of 80:20 and n_splits is 
+            # number of times the data needs to be sampled for test_size and data's are taken randomly at 42 
+            split = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
+
+            #our group is movies_df["income_cat"] so split function will split based on this category
+            for train_index,test_index in split.split(movies_df, movies_df["income_cat"]):
+                #since only for split we use movies_df["income_cat"] we are droping from train and test split
+                strat_train_set = movies_df.loc[train_index].drop(["income_cat"],axis=1)
+                strat_test_set = movies_df.loc[test_index].drop(["income_cat"],axis=1)
+
+            #for saving the strat_train_set and strat_test_set we have directory and our filename
+            train_file_path = os.path.join(self.data_ingestion_config.ingested_train_dir,
+                                            main_folder)
+
+            test_file_path = os.path.join(self.data_ingestion_config.ingested_test_dir,
+                                        main_folder)
+            
+            if strat_train_set is not None:
+                os.makedirs(self.data_ingestion_config.ingested_train_dir,exist_ok=True)
+                logging.info(f"Exporting training datset to file: [{train_file_path}]")
+                #saving the file in the location train_file_path and ignoring index
+                strat_train_set.to_csv(train_file_path,index=False)
+
+            if strat_test_set is not None:
+                os.makedirs(self.data_ingestion_config.ingested_test_dir, exist_ok= True)
+                logging.info(f"Exporting test dataset to file: [{test_file_path}]")
+                strat_test_set.to_csv(test_file_path,index=False)
+            
+            #now storing output in DataIngestionArtifact
+            data_ingestion_artifact = DataIngestionArtifact(train_file_path=train_file_path,
+                                test_file_path=test_file_path,
+                                is_ingested=True,
+                                message=f"Data ingestion completed successfully."
+                                )
+            logging.info(f"Data Ingestion artifact:[{data_ingestion_artifact}]")
+            return data_ingestion_artifact
+
         except Exception as e:
             return e        
 

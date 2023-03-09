@@ -52,3 +52,5 @@ entity need the properities ,so these properities are defined on </br>
 <h4>we have entity, properities ,and reader Now, we can read yaml file and assign it the properities ,which is done on </h4></br>
 "/home/$USER/Documents/Movies/Movies/config/configurations.py" 
 
+<h2> Evidently AI library is used for checking data drift </h2>
+

@@ -3,7 +3,7 @@ trainig_pipline_config:
   artifact_dir: artifact  #output directory 
 
 data_ingestion_config:
-  dataset_download_url: "https://hello.com/data/new/train.csv"
+  dataset_download_url: "https://drive.google.com/drive/u/0/my-drive"
   raw_data_dir: raw_data
   tgz_download_dir: tgz_data
   ingested_dir: ingested_data  #contains both ingested train and test dir
@@ -12,7 +12,7 @@ data_ingestion_config:
 
 data_validation_config:
    schema_file_dir : schema
-   schema_file_name: schema.yaml
+   schema_file_name: schema_validation.yaml
    data_report_file_name: report.json
    report_page_name: report.html
 

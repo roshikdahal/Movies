@@ -1,0 +1,42 @@
+columns:
+  Unnamed: Integer
+  originalTitle: category
+  domestic_revenue: category
+  distributor: category
+  opening_revenue: category
+  opening_theaters: category
+  budget: category
+  MPAA: category
+  genres_x: category
+  release_days: float
+  tconst: category
+  titleType: category
+  isAdult: Float
+  startYear: Integer
+  runtimeMinutes: float
+  genres_y: category
+  averageRating: float
+  numVotes: float
+  ordering: float
+  nconst: category
+  category: category
+  job: category
+  characters: category
+  primaryName: category
+  birthYear: category
+  deathYear: catgory
+  primaryProfession: category
+  knownForTitles: categoy
+
+
+
+target_column: world_revenue
+#data range check
+domain_value:
+  MPAA:
+   -PG-13,
+   -R,
+   -Not Rated,
+   -G,
+   -PG,
+  

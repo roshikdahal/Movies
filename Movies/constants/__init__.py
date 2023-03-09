@@ -8,8 +8,12 @@ from datetime import date, datetime
 CURRENT_WORKING_DIR = os.getcwd()
 CONFIG_DIR = "config"
 CONFIG_FILE_NAME = "config.yaml"
-
+SCHEMA_FILE_NAME = "schema_validation.yaml"
 CONFIG_FILE_DIR = os.path.join(CURRENT_WORKING_DIR,CONFIG_DIR,CONFIG_FILE_NAME)
+
+SCHEMA_FILE_DIR = os.path.join(CURRENT_WORKING_DIR,CONFIG_DIR,SCHEMA_FILE_NAME)
+#schema constant
+COLUMNS = 'columns'
 
 def get_current_time_stamp():
     return f"{datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}"
@@ -36,6 +40,7 @@ SCHEMA_FILE_DIR_KEY = "schema_file_dir"
 SCHEMA_FILE_NAME_KEY = "schema_file_name"
 REPORT_FILE_NAME = "data_report_file_name"
 REPORT_PAGE_FILE = 'report_page_name'
+DATA_VALIDATION_ARTIFACT_DIR_NAME = 'data_validation'  #after running data validation pipeline ,generate artifact so to store that artifact we create this folder
 
 
 #data transformation config constant defining
